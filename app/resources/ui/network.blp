@@ -1,0 +1,27 @@
+using Gtk 4.0;
+using AstalNetwork 0.1;
+
+template $Network : Box {
+  Overlay {
+    child: $CircularProgress network_progress {
+      percentage: bind template.adjustment as <Gtk.Adjustment>.value;
+    };
+
+    [overlay]
+    Image network_icon {
+      icon-name: bind template.wifi as <AstalNetwork.Wifi>.icon-name;
+      halign: center;
+    }
+  }
+
+  Popover network_popover {
+    width-request: 100;
+    position: right;
+
+    Label { label: "Network"; }
+  }
+
+  GestureClick {
+    pressed => $toggle_popover();
+  }
+}

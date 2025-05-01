@@ -1,0 +1,19 @@
+using Gtk 4.0;
+
+template $Clock : Box {
+  orientation: vertical;
+  
+  Label hours {}
+  Label minutes {}
+
+  Popover clock_popover {
+    width-request: 100;
+    position: right;
+
+    Calendar {}
+  }
+
+  GestureClick {
+    pressed => $toggle_popover();
+  }
+}

@@ -1,0 +1,34 @@
+using Gtk 4.0;
+using AstalWp 0.1;
+
+template $Wireplumber : Box {
+  Overlay {
+    child: $CircularProgress wireplumber_progress {
+      percentage: bind template.speaker as <AstalWp.Endpoint>.volume;
+    };
+
+    [overlay]
+    Image wireplumber_icon {
+      icon-name: bind template.speaker as <AstalWp.Endpoint>.volume-icon;
+      halign: center;
+    }
+  }
+
+  Popover wireplumber_popover {
+    width-request: 100;
+    position: right;
+
+    Label { label: "Wireplumber"; }
+  }
+
+  GestureClick left_click {
+    pressed => $toggle_mute();
+  }
+  GestureClick right_click {
+    pressed => $toggle_popover();
+  }
+  EventControllerScroll {
+    flags: vertical;
+    scroll => $increment_volume();
+  }
+}

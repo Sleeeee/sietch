@@ -1,2 +1,28 @@
-# sietch
-A shell built around libastal in Vala
+# Sietch
+This project is a custom shell build in Vala around Astal. It is still far from complete (only integrates parts of a status bar so far, even this README is subject to upcoming changes), but the repo is made public during development. All suggestions, comments, questions are welcome.
+
+## Progress
+### Status Bar
+Below is a non-exhaustive list of the progress made and the upcoming features I have in mind. I may or may not add those features in the future.
+
+[] Power menu
+[X] Hyprland workspaces indicators
+[X] Clock/Calendar
+[X] Wireplumber indicator
+[] Wireplumber popup menu
+[X] Network indicator
+[] Network popup menu
+[X] Battery indicator
+[] Battery popup menu
+[] Package updates indicator
+[] Notification center
+[] App launcher
+[] Sticky notes
+[] Theme switcher
+
+## Acknowledgements
+There are some people that Sietch would not be alive without, so huge thanks to : 
+- [Aylur](https://github.com/Aylur) for creating [Astal](https://github.com/Aylur/astal) and [AGS](https://github.com/Aylur/ags), and building an ecosystem around it
+- [kotontrion](https://github.com/kotontrion/) for creating the inspiring [Kompass](https://github.com/kotontrion/kompass) shell as well as their work on Astal
+- [ARKye03](https://github.com/ARKye03/) for creating their own shell called [Morghulis](https://github.com/ARKye03/morghulis)
+- The [Aylur's GTK Shell Discord](https://discord.com/invite/CXQpHwDuhY) for the guidance of its members

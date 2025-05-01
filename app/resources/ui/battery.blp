@@ -1,0 +1,27 @@
+using Gtk 4.0;
+using AstalBattery 0.1;
+
+template $Battery : Box {
+  Overlay {
+    child: $CircularProgress battery_progress {
+      percentage: bind template.battery as <AstalBattery.Device>.percentage;
+    };
+
+    [overlay]
+    Image battery_icon {
+      icon-name: bind template.battery as <AstalBattery.Device>.battery-icon-name;
+      halign: center;
+    }
+  }
+
+  Popover battery_popover {
+    width-request: 100;
+    position: right;
+
+    Label { label: "Battery"; }
+  }
+
+  GestureClick {
+    pressed => $toggle_popover();
+  }
+}

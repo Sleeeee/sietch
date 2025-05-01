@@ -1,0 +1,35 @@
+@use "variables";
+
+bar {
+  padding: 4px;
+  border-radius: 5px;
+  background-color: variables.$bg-color;
+
+  image {
+    -gtk-icon-size: 20px;
+    &.logo {
+      -gtk-icon-size: 40px;
+    }
+  }
+
+  .circular-progress {
+    color: variables.$fg-color;
+    &.warning {
+      color: variables.$warning-color;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    &:hover {
+      color: variables.$fg-color;
+      border: 1px solid variables.$fg-color;
+      opacity: 0.5;
+    }
+    &.focused {
+      border: 1px solid variables.$fg-color;
+    }
+  }
+}

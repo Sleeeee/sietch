@@ -1,0 +1,11 @@
+@use "clock";
+@use "bar";
+
+* {
+  font-family: "DejaVu Sans Mono", monospace;
+  box-shadow: none;
+}
+
+.debug {
+  border: 1px solid red;
+}

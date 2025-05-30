@@ -3,11 +3,11 @@ public class Wireplumber : Gtk.Box {
   public AstalWp.Endpoint speaker { get; private set; }
   
   [GtkChild]
-  private unowned CircularProgress wireplumber_progress;
+  private unowned CircularProgress speaker_progress;
   [GtkChild]
-  private unowned Gtk.Image wireplumber_icon;
+  private unowned Gtk.Image speaker_icon;
   [GtkChild]
-  private unowned Gtk.Popover wireplumber_popover;
+  private unowned Gtk.Popover speaker_popover;
   [GtkChild]
   private unowned Gtk.GestureClick left_click;
   [GtkChild]
@@ -20,7 +20,7 @@ public class Wireplumber : Gtk.Box {
 
   [GtkCallback]
   public void toggle_popover() {
-    this.wireplumber_popover.popup();
+    this.speaker_popover.popup();
   }
 
   [GtkCallback]
@@ -31,11 +31,11 @@ public class Wireplumber : Gtk.Box {
 
   private void set_mute_class(bool is_mute) {
     if (is_mute) {
-      if (!this.wireplumber_progress.has_css_class("warning")) { this.wireplumber_progress.add_css_class("warning"); }
-      if (!this.wireplumber_icon.has_css_class("warning")) { this.wireplumber_icon.add_css_class("warning"); }
+      if (!this.speaker_progress.has_css_class("warning")) { this.speaker_progress.add_css_class("warning"); }
+      if (!this.speaker_icon.has_css_class("warning")) { this.speaker_icon.add_css_class("warning"); }
     } else {
-      if (this.wireplumber_progress.has_css_class("warning")) { this.wireplumber_progress.remove_css_class("warning"); }
-      if (this.wireplumber_icon.has_css_class("warning")) { this.wireplumber_icon.remove_css_class("warning"); }
+      if (this.speaker_progress.has_css_class("warning")) { this.speaker_progress.remove_css_class("warning"); }
+      if (this.speaker_icon.has_css_class("warning")) { this.speaker_icon.remove_css_class("warning"); }
     }
   }
 

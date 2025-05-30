@@ -3,22 +3,30 @@ using AstalWp 0.1;
 
 template $Wireplumber : Box {
   Overlay {
-    child: $CircularProgress wireplumber_progress {
+    child: $CircularProgress speaker_progress {
       percentage: bind template.speaker as <AstalWp.Endpoint>.volume;
     };
 
     [overlay]
-    Image wireplumber_icon {
+    Image speaker_icon {
       icon-name: bind template.speaker as <AstalWp.Endpoint>.volume-icon;
       halign: center;
     }
   }
 
-  Popover wireplumber_popover {
+  Popover speaker_popover {
     width-request: 100;
     position: right;
+    autohide: true;
 
-    Label { label: "Wireplumber"; }
+    Box {
+      orientation: vertical;
+
+      Label speaker_description_label {
+        label: bind template.speaker as <AstalWp.Endpoint>.description;
+        halign: center;
+      }
+    }
   }
 
   GestureClick left_click {

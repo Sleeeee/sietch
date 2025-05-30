@@ -17,8 +17,19 @@ template $Battery : Box {
   Popover battery_popover {
     width-request: 100;
     position: right;
+    autohide: true;
 
-    Label { label: "Battery"; }
+    Box {
+      orientation: vertical;
+
+      Label {
+        label: bind $get_percentage_label(template.battery as <AstalBattery.Device>.percentage) as <string>;
+      }
+      Label {
+        label: bind $get_time_remaining_label(template.battery as <AstalBattery.Device>.update-time) as <string>;
+      }
+      styles ["popover-menu"]
+    }
   }
 
   GestureClick {

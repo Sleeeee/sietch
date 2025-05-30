@@ -32,4 +32,24 @@ bar {
       border: 1px solid variables.$fg-color;
     }
   }
+
+  popover {
+    &.background {
+      opacity: 0.8;
+      background-color: transparent;
+    }
+  }
+
+  .popover-menu {
+    padding: 3px;
+    label {
+      margin: 3px;
+      padding: 5px;
+      border-radius: 3px;
+      background-color: variables.$bg-color;
+      &:hover {
+        background-color: variables.$accent-color;
+      }
+    }
+  }
 }

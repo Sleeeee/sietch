@@ -3,6 +3,7 @@ blueprints = custom_target('blueprints',
     'hyprland.blp',
     'clock.blp',
     'wireplumber.blp',
+    'access-point-box.blp',
     'network.blp',
     'battery.blp',
     'bar.blp'

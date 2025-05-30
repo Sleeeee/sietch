@@ -1,5 +1,5 @@
 public class WorkspaceButton : Gtk.Button {
-  public unowned AstalHyprland.Workspace workspace { get; construct;}
+  public unowned AstalHyprland.Workspace workspace { get; construct; }
 
   public WorkspaceButton(AstalHyprland.Workspace workspace) {
     Object(workspace: workspace);

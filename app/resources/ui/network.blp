@@ -17,8 +17,37 @@ template $Network : Box {
   Popover network_popover {
     width-request: 100;
     position: right;
+    autohide: true;
 
-    Label { label: "Network"; }
+    Box {
+      orientation: vertical;
+
+      Label {
+        label: bind template.wifi as <AstalNetwork.Wifi>.active-access-point as <AstalNetwork.AccessPoint>.ssid;
+      }
+      Label ipv4_label {
+        label: "No IPv4 address assigned";
+        halign: center;
+      }
+      Label ipv6_label {
+        label: "No IPv6 address assigned";
+        halign: center;
+        styles ["text-sm"]
+      }
+
+      ScrolledWindow {
+        hscrollbar-policy: never;
+        vscrollbar-policy: automatic;
+        min-content-height: 0;
+        max-content-height: 150;
+
+        Box access_points_container {
+          orientation: vertical;
+        }
+      }
+
+      styles ["popover-menu"]
+    }
   }
 
   GestureClick {

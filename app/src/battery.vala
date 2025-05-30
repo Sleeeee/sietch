@@ -14,21 +14,34 @@ public class Battery : Gtk.Box {
     this.battery_popover.popup();
   }
 
-  private void set_percentage_class(double percentage) {
-    if (percentage > 0.3 && percentage < 0.9) {
-      if (this.battery_progress.has_css_class("warning")) { this.battery_progress.remove_css_class("warning"); }
-      if (this.battery_icon.has_css_class("warning")) { this.battery_icon.remove_css_class("warning"); }
-    } else {
+  [GtkCallback]
+  public string get_percentage_label(double percentage) {
+    return "%d%% charged".printf((int)(percentage * 100));
+  }
+
+  [GtkCallback]
+  public string get_time_remaining_label(uint64 update_time) {
+    int64 seconds = this.battery.charging ? this.battery.time_to_full : this.battery.time_to_empty;
+    return "%02d:%02d until %s".printf((int)seconds/3600, (int)(seconds%3600)/60, this.battery.charging ? "full" : "empty");
+  }
+
+  private void set_percentage_class(double percentage, bool is_charging) {
+    if ((!is_charging && percentage <= 0.3) || (is_charging && percentage >= 0.9)) {
       if (!this.battery_progress.has_css_class("warning")) { this.battery_progress.add_css_class("warning"); }
       if (!this.battery_icon.has_css_class("warning")) { this.battery_icon.add_css_class("warning"); }
+    } else {
+      if (this.battery_progress.has_css_class("warning")) { this.battery_progress.remove_css_class("warning"); }
+      if (this.battery_icon.has_css_class("warning")) { this.battery_icon.remove_css_class("warning"); }
     }
   }
+
 
   construct {
     this.battery = AstalBattery.get_default();
     if (this.battery.is_present) {
-      this.battery.notify["percentage"].connect(() => { set_percentage_class(this.battery.percentage); });
-      set_percentage_class(this.battery.percentage);
+      this.battery.notify["percentage"].connect(() => { set_percentage_class(this.battery.percentage, this.battery.charging); });
+      this.battery.notify["charging"].connect(() => { set_percentage_class(this.battery.percentage, this.battery.charging); });
+      set_percentage_class(this.battery.percentage, this.battery.charging);
     } else {
       this.dispose();
     }

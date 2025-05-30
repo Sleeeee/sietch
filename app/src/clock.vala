@@ -14,26 +14,27 @@ public class Clock : Gtk.Box {
     this.clock_popover.popup();
   }
 
-  private void sync_clock() {
+  private void update_clock_labels() {
     GLib.DateTime now = new GLib.DateTime.now_local();
     this.hours.label = now.format("%H");
     this.minutes.label = now.format("%M");
   }
 
+  class construct {
+    set_css_name("clock");
+  }
+
   construct {
     this.timeout = GLib.Timeout.add(10000, () => {
-      this.sync_clock();
+      this.update_clock_labels();
       return GLib.Source.CONTINUE;
     });
-    this.sync_clock();
+    this.update_clock_labels();
   }
 
   public override void dispose() {
     GLib.Source.remove(this.timeout);
+    this.timeout = 0;
     base.dispose();
-  }
-
-  class construct {
-    set_css_name("clock");
   }
 }

@@ -1,24 +1,26 @@
 # Sietch
-This project is a custom shell build in Vala around Astal. It is still far from complete (only integrates parts of a status bar so far, even this README is subject to upcoming changes), but the repo is made public during development. All suggestions, comments, questions are welcome.
+This project is a custom desktop shell written in Vala, based on the Astal library. It is still far from complete (only integrates parts of a status bar so far, even this README is subject to upcoming changes), but this repo will be kept public during development. All suggestions, comments, questions are welcome.
+
+<img width="1920" height="1200" alt="20250806_09h30m15s_grim" src="https://github.com/user-attachments/assets/34646cd9-46bb-4fac-961c-4d21e738311d" />
 
 ## Progress
 ### Status Bar
 Below is a non-exhaustive list of the progress made and the upcoming features I have in mind. I may or may not add those features in the future.
 
-[] Power menu
-[X] Hyprland workspaces indicators
-[X] Clock/Calendar
-[X] Wireplumber indicator
-[] Wireplumber popup menu
-[X] Network indicator
-[] Network popup menu
-[X] Battery indicator
-[] Battery popup menu
-[] Package updates indicator
-[] Notification center
-[] App launcher
-[] Sticky notes
-[] Theme switcher
+- [ ] Power menu
+- [X] Hyprland workspaces indicators
+- [X] Clock/Calendar
+- [X] Wireplumber indicator
+- [ ] Wireplumber popup menu
+- [X] Network indicator
+- [ ] Network popup menu
+- [X] Battery indicator
+- [ ] Battery popup menu
+- [ ] Package updates indicator
+- [ ] Notification center
+- [ ] App launcher
+- [ ] Sticky notes
+- [ ] Theme switcher
 
 ## Acknowledgements
 There are some people that Sietch would not be alive without, so huge thanks to : 

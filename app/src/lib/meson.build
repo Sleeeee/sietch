@@ -1,5 +1,6 @@
 app_vala_sources += files(
-  'workspace-button.vala',
   'circular-progress.vala',
+  'workspace-button.vala',
+  'device-box.vala',
   'access-point-box.vala'
 )

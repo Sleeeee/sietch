@@ -6,6 +6,8 @@
     <file preprocess="xml-stripblanks">ui/hyprland.ui</file>
     <file preprocess="xml-stripblanks">ui/clock.ui</file>
     <file preprocess="xml-stripblanks">ui/wireplumber.ui</file>
+    <file preprocess="xml-stripblanks">ui/device-box.ui</file>
+    <file preprocess="xml-stripblanks">ui/bluetooth.ui</file>
     <file preprocess="xml-stripblanks">ui/access-point-box.ui</file>
     <file preprocess="xml-stripblanks">ui/network.ui</file>
     <file preprocess="xml-stripblanks">ui/battery.ui</file>

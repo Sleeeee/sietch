@@ -34,7 +34,7 @@ public class Network : Gtk.Box {
   }
 
   private void set_adjustment_value(uint8 strength) {
-    this.adjustment.value = (float)strength / 100.0;
+    this.adjustment.value = (double)strength / 100.0;
   }
 
   private void check_ip_protocol(ref bool searching, NM.IPConfig? ip_config, Gtk.Label label, string ip_version) {
@@ -108,7 +108,7 @@ public class Network : Gtk.Box {
 
   construct {
     this.wifi = AstalNetwork.get_default().wifi;
-    this.adjustment = new Gtk.Adjustment((float)this.wifi.strength / 100.0, 0, 1, 0, 0, 0);
+    this.adjustment = new Gtk.Adjustment((double)this.wifi.strength / 100.0, 0, 1, 0, 0, 0);
     this.wifi.notify["strength"].connect(() => { set_adjustment_value(this.wifi.strength); });
     this.wifi.state_changed.connect((state) => {
       set_state_class(state);

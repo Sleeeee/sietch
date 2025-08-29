@@ -10,12 +10,14 @@ Below is a non-exhaustive list of the progress made and the upcoming features I 
 - [ ] Power menu
 - [X] Hyprland workspaces indicators
 - [X] Clock/Calendar
+- [X] Bluetooth indicator
+- [ ] Bluetooth popup menu (WIP)
 - [X] Wireplumber indicator
 - [ ] Wireplumber popup menu
 - [X] Network indicator
-- [ ] Network popup menu
+- [ ] Network popup menu (WIP)
 - [X] Battery indicator
-- [ ] Battery popup menu
+- [ ] Battery popup menu (WIP)
 - [ ] Package updates indicator
 - [ ] Notification center
 - [ ] App launcher

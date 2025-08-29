@@ -2,6 +2,7 @@ app_vala_sources = files(
   'hyprland.vala',
   'clock.vala',
   'wireplumber.vala',
+  'bluetooth.vala',
   'network.vala',
   'battery.vala',
   'bar.vala',
@@ -18,6 +19,7 @@ app_deps = [
   dependency('astal-io-0.1'),
   dependency('astal-hyprland-0.1'),
   dependency('astal-wireplumber-0.1'),
+  dependency('astal-bluetooth-0.1'),
   dependency('astal-network-0.1'),
   dependency('astal-battery-0.1')
 ]

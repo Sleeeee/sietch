@@ -1,0 +1,31 @@
+using Gtk 4.0;
+
+template $Bluetooth : Box {
+  Overlay {
+    child: $CircularProgress bluetooth_progress {
+      percentage: bind template.adjustment as <Gtk.Adjustment>.value;
+    };
+
+    [overlay]
+    Image bluetooth_icon {
+      icon-name: "bluetooth-symbolic";
+      halign: center;
+    }
+  }
+
+  Popover bluetooth_popover {
+    width-request: 100;
+    position: right;
+    autohide: true;
+
+    Box devices_container {
+      orientation: vertical;
+
+      styles ["popover-menu"]
+    }
+  }
+
+  GestureClick {
+    pressed => $toggle_popover();
+  }
+}

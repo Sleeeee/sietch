@@ -34,9 +34,15 @@ bar {
   }
 
   popover {
+    margin-left: 10px;
+    border: none;
     &.background {
       opacity: 0.8;
       background-color: transparent;
+    }
+    arrow {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
     }
   }
 

@@ -1,0 +1,21 @@
+using Gtk 4.0;
+
+template $DeviceBox : Box {
+  Image device_icon {
+    icon-name: "missing-symbolic";
+  }
+
+  Label alias_label {
+    label: "Alias";
+  }
+
+  Button {
+    Image connected_icon {
+      halign: end;
+    }
+
+    GestureClick {
+      pressed => $toggle_connection();
+    }
+  }
+}

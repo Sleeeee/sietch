@@ -9,6 +9,8 @@ public class Bar : Astal.Window {
   [GtkChild]
   private unowned Wireplumber wireplumber;
   [GtkChild]
+  private unowned Bluetooth bluetooth;
+  [GtkChild]
   private unowned Network network;
   [GtkChild]
   private unowned Battery battery;

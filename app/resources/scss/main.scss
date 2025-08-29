@@ -1,8 +1,10 @@
 @use "clock";
+@use "network";
+@use "battery";
 @use "bar";
 
 * {
-  font-family: "DejaVu Sans Mono", monospace;
+  font-family: monospace;
   box-shadow: none;
 }
 

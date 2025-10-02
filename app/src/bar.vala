@@ -7,6 +7,8 @@ public class Bar : Astal.Window {
   [GtkChild]
   private unowned Clock clock;
   [GtkChild]
+  private unowned Theme theme;
+  [GtkChild]
   private unowned Wireplumber wireplumber;
   [GtkChild]
   private unowned Bluetooth bluetooth;
@@ -22,7 +24,6 @@ public class Bar : Astal.Window {
       gdkmonitor: monitor
     );
 
-    // Have to hardcode this until I get anchors working
     GtkLayerShell.set_anchor(this, GtkLayerShell.Edge.LEFT, true);
     GtkLayerShell.set_anchor(this, GtkLayerShell.Edge.TOP, true);
     GtkLayerShell.set_anchor(this, GtkLayerShell.Edge.BOTTOM, true);

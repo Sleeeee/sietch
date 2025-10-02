@@ -15,19 +15,102 @@ template $Battery : Box {
   }
 
   Popover battery_popover {
-    width-request: 100;
+    width-request: 300;
     position: right;
     autohide: true;
 
     Box {
       orientation: vertical;
 
-      Label {
-        label: bind $get_percentage_label(template.battery as <AstalBattery.Device>.percentage) as <string>;
+      Box {
+        Label {
+          label: "Battery";
+	  halign: center;
+	  hexpand: true;
+	}
+        styles ["popover-title"]
       }
-      Label {
-        label: bind $get_time_remaining_label(template.battery as <AstalBattery.Device>.update-time) as <string>;
+
+      // First content block
+      Box {
+        orientation: vertical;
+
+	// Status row
+	Box {
+	  homogeneous: true;
+
+	  Label {
+	    label: "Status";
+	    halign: start;
+	  }
+	  Label {
+	    label: bind $get_status_label(template.battery as <AstalBattery.Device>.charging) as <string>;
+	    halign: end;
+	  }
+	}
+
+	// Percentage row
+        Box {
+	  homogeneous: true;
+
+	  Label {
+            label: "Percentage";
+	    halign: start;
+	  }
+	  Label {
+            label: bind $get_percentage_label(template.battery as <AstalBattery.Device>.percentage) as <string>;
+	    halign: end;
+	  }
+	}
+
+	// Time left row
+	Box {
+	  homogeneous: true;
+
+	  Label {
+	    label: "Time left";
+	    halign: start;
+	  }
+          Label {
+            label: bind $get_time_remaining_label(template.battery as <AstalBattery.Device>.update-time) as <string>;
+	    halign: end;
+          }
+	}
       }
+
+      // Second content block
+      Box {
+	orientation: vertical;
+
+	// Power rate row
+	Box {
+	  homogeneous: true;
+
+	  Label {
+	    label: "Power rate";
+	    halign: start;
+	  }
+	  Label {
+	    label: bind $get_power_rate_label(template.battery as <AstalBattery.Device>.energy-rate) as <string>;
+	    halign: end;
+	  }
+	}
+
+	// Energy row
+	Box {
+	  homogeneous: true;
+
+	  Label {
+	    label: "Energy";
+	    halign: start;
+	  }
+	  Label {
+	    label: bind $get_energy_label(template.battery as <AstalBattery.Device>.energy) as <string>;
+	    halign: end;
+	  }
+	}
+      }
+
       styles ["popover-menu"]
     }
     styles ["battery-popover"]

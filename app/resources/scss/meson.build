@@ -1,6 +1,7 @@
 sass = find_program('sass')
 scss_files = files(
   '_variables.scss',
+  '_hyprland.scss',
   '_clock.scss',
   '_network.scss',
   '_battery.scss',

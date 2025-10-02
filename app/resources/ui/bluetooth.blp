@@ -14,12 +14,25 @@ template $Bluetooth : Box {
   }
 
   Popover bluetooth_popover {
-    width-request: 100;
+    width-request: 200;
     position: right;
     autohide: true;
 
-    Box devices_container {
+    Box {
       orientation: vertical;
+
+      Box {
+        Label {
+	  label: "Bluetooth";
+	  halign: center;
+	  hexpand: true;
+        }
+        styles ["popover-title"]
+      }
+
+      Box devices_container {
+        orientation: vertical;
+      }
 
       styles ["popover-menu"]
     }

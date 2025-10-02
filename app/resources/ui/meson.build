@@ -2,6 +2,7 @@ blueprints = custom_target('blueprints',
   input: files(
     'hyprland.blp',
     'clock.blp',
+    'theme.blp',
     'wireplumber.blp',
     'device-box.blp',
     'bluetooth.blp',

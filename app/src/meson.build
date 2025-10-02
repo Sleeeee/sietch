@@ -1,6 +1,7 @@
 app_vala_sources = files(
   'hyprland.vala',
   'clock.vala',
+  'theme.vala',
   'wireplumber.vala',
   'bluetooth.vala',
   'network.vala',

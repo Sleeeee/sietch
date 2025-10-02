@@ -1,0 +1,13 @@
+@use "variables";
+
+.hyprland-bar {
+  >button {
+    border-radius: 15px;
+    &:hover {
+      border: 1px solid variables.$fg-color;
+    }
+    &.focused {
+      border: 1px solid variables.$fg-color;
+    }
+  }
+}

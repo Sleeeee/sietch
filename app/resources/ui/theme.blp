@@ -1,0 +1,76 @@
+using Gtk 4.0;
+
+template $Theme : Box {
+  Overlay {
+    child: $CircularProgress brightness_progress {
+      percentage: bind template.brightness as <$Brightness>.brightness;
+    };
+
+    [overlay]
+    Image {
+      icon-name: "applications-graphics-symbolic";
+      halign: center;
+    }
+  }
+
+  Popover theme_popover {
+    width-request: 50;
+    position: right;
+    autohide: true;
+
+    Box {
+      orientation: vertical;
+
+      Box {
+        Label {
+          label: "Theme";
+          halign: center;
+          hexpand: true;
+        }
+        styles ["popover-title"]
+      }
+
+      Box {
+        orientation: vertical;
+        Box {
+          Button {
+	    Label {
+              label: "nord";
+	      halign: center;
+	      hexpand: true;
+	    }
+	    name: "nord:dark";
+	    clicked => $set_theme();
+          }
+        }
+      }
+
+      Box {
+        orientation: vertical;
+	Box {
+	  Button {
+	    Label {
+              label: "gruvbox-material";
+	      halign: center;
+	      hexpand: true;
+	    }
+	    name: "gruvbox-material:dark";
+	    clicked => $set_theme();
+          }
+	}
+      }
+
+      styles ["popover-menu"]
+    }
+
+    styles ["theme-popover"]
+  }
+
+  GestureClick {
+    pressed => $toggle_popover();
+  }
+  EventControllerScroll {
+    flags: vertical;
+    scroll => $increment_brightness();
+  }
+}

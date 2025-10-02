@@ -22,39 +22,42 @@ bar {
   button {
     background-color: transparent;
     border: none;
-    border-radius: 50%;
     &:hover {
       color: variables.$fg-color;
-      border: 1px solid variables.$fg-color;
       opacity: 0.5;
-    }
-    &.focused {
-      border: 1px solid variables.$fg-color;
     }
   }
 
   popover {
     margin-left: 10px;
     border: none;
-    &.background {
-      opacity: 0.8;
-      background-color: transparent;
-    }
+
     arrow {
       background-color: rgba(0, 0, 0, 0);
       border: none;
     }
-  }
 
-  .popover-menu {
-    padding: 3px;
-    label {
-      margin: 3px;
-      padding: 5px;
-      border-radius: 3px;
+    contents {
       background-color: variables.$bg-color;
-      &:hover {
-        background-color: variables.$accent-color;
+
+      .popover-menu {
+        padding: 3px;
+
+        >box {
+          margin: 3px;
+          padding: 5px;
+          border-radius: 3px;
+          background-color: variables.$alternate-color;
+
+          &.popover-title {
+            margin-bottom: 10px;
+            font-size: 20px;
+          }
+
+          >box {
+            margin: 3px;
+          }
+        }
       }
     }
   }

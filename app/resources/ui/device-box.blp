@@ -13,9 +13,6 @@ template $DeviceBox : Box {
     Image connected_icon {
       halign: end;
     }
-
-    GestureClick {
-      pressed => $toggle_connection();
-    }
+    clicked => $toggle_connection();
   }
 }

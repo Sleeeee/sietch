@@ -23,6 +23,12 @@ public class Network : Gtk.Box {
     this.network_popover.popup();
   }
 
+  [GtkCallback]
+  public string get_status_label(AstalNetwork.DeviceState state) {
+    string state_name = state.to_string();
+    return state_name.substring(0, 1).up() + state_name.substring(1);
+  }
+
   private void set_state_class(AstalNetwork.DeviceState state) {
     if (state.to_string() == "activated") {
       if (this.network_progress.has_css_class("warning")) { this.network_progress.remove_css_class("warning"); }
@@ -52,7 +58,7 @@ public class Network : Gtk.Box {
         label.label = "No %s address assigned".printf(ip_version);
       }
     } else {
-      // Stop searching for IPv4 if not supported
+      // Stop searching for IP if protocol not supported
       searching = false;
       label.label = "%s unsupported".printf(ip_version);
     }
@@ -62,6 +68,7 @@ public class Network : Gtk.Box {
     if (state.to_string() == "activated") {
       bool searching_ipv4 = true;
       bool searching_ipv6 = true;
+
       this.timeout = GLib.Timeout.add(5000, () => {
         if (this.wifi.state.to_string() == "activated") {
           NM.ActiveConnection? active_connection = this.wifi.active_connection;
@@ -75,13 +82,13 @@ public class Network : Gtk.Box {
           }
         }
         // Interface was de-activated
-        this.ipv4_label.label = "Interface not activated";
-        this.ipv6_label.label = "Interace not activated";
+        this.ipv4_label.label = "Down";
+        this.ipv6_label.label = "Down";
         return GLib.Source.REMOVE;
       });
     } else {
-      this.ipv4_label.label = "Interface not activated";
-      this.ipv6_label.label = "Interface not activated";
+      this.ipv4_label.label = "Down";
+      this.ipv6_label.label = "Down";
     }
   }
 

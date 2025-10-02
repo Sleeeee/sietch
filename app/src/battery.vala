@@ -15,14 +15,29 @@ public class Battery : Gtk.Box {
   }
 
   [GtkCallback]
+  public string get_status_label(bool is_charging) {
+    return this.battery.charging ? "Charging" : "Discharging";
+  }
+
+  [GtkCallback]
   public string get_percentage_label(double percentage) {
-    return "%d%% charged".printf((int)(percentage * 100));
+    return "%d%%".printf((int)(percentage * 100));
   }
 
   [GtkCallback]
   public string get_time_remaining_label(uint64 update_time) {
     int64 seconds = this.battery.charging ? this.battery.time_to_full : this.battery.time_to_empty;
-    return "%02d:%02d until %s".printf((int)seconds/3600, (int)(seconds%3600)/60, this.battery.charging ? "full" : "empty");
+    return "%02d:%02d".printf((int)seconds/3600, (int)(seconds%3600)/60);
+  }
+
+  [GtkCallback]
+  public string get_power_rate_label(double power_rate) {
+    return "%.2f W".printf(power_rate);
+  }
+
+  [GtkCallback]
+  public string get_energy_label(double energy) {
+    return "%.2f Wh".printf(energy);
   }
 
   private void set_percentage_class(double percentage, bool is_charging) {

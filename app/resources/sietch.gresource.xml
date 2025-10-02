@@ -5,6 +5,7 @@
     <file>style.css</file>
     <file preprocess="xml-stripblanks">ui/hyprland.ui</file>
     <file preprocess="xml-stripblanks">ui/clock.ui</file>
+    <file preprocess="xml-stripblanks">ui/theme.ui</file>
     <file preprocess="xml-stripblanks">ui/wireplumber.ui</file>
     <file preprocess="xml-stripblanks">ui/device-box.ui</file>
     <file preprocess="xml-stripblanks">ui/bluetooth.ui</file>
